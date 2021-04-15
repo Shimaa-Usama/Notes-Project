@@ -1,5 +1,5 @@
 const app = require('express').Router();
-const { validationResult} = require('express-validator');
+const { validationResult } = require('express-validator');
 const validation = require('./validation/register.validation');
 const bcrypt = require('bcrypt');
 const userModel = require('../models/users.model')

@@ -21,18 +21,20 @@ app.use(session({
 app.use(flash())
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({ extended:false }))
-app.use(require('./routes/register.routes'))
-app.use(require('./routes/login.routes'))
-app.use(require('./routes/home.routes'))
-app.use(require('./routes/logout.routes'))
-app.use(require('./CRUD/add'))
-app.use(require('./CRUD/delete'))
-app.use(require('./CRUD/update'))
+app.use(express.urlencoded({ extended:false }));
+app.use(require('./routes/register.routes'));
+app.use(require('./routes/login.routes'));
+app.use(require('./routes/home.routes'));
+app.use(require('./routes/logout.routes'));
+app.use(require('./CRUD/add'));
+app.use(require('./CRUD/delete'));
+app.use(require('./CRUD/update'));
 
-
+app.get('*', (req, res, next) => {
+  res.send('404 ERR!');
+});
 
 mongoose.connect('mongodb+srv://admin:admin@shu.j3esi.mongodb.net/myProject', {useNewUrlParser: true, useUnifiedTopology: true});
 
 
-app.listen(process.env.PORT || port, () => console.log(`Example app listening on port port!`))
+app.listen((process.env.PORT || port), () => console.log(`Example app listening on port port!`))
