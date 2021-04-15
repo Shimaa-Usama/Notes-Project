@@ -37,4 +37,4 @@ app.get('*', (req, res, next) => {
 mongoose.connect('mongodb+srv://admin:admin@shu.j3esi.mongodb.net/myProject', {useNewUrlParser: true, useUnifiedTopology: true});
 
 
-app.listen(process.env.port, () => console.log(`Example app listening on port port!`))
+app.listen((process.env.PORT || port), () => console.log(`Example app listening on port port!`))
